@@ -6,133 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VCX WORK'S</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth;
-            overflow: hidden;
-        }
-
-        section {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.5s ease;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            color: #00FFFF;
-            margin-bottom: 20px;
-        }
-
-        .about-section p {
-            max-width: 800px;
-            text-align: center;
-            font-size: 1.2rem;
-            color: #00FFFF;
-        }
-
-        .video-section, .coverarts-section {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .video-container, .coverart-container {
-            width: 45%;
-            height: 45%;
-            position: relative;
-        }
-
-        .coverart-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        nav {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-        }
-
-        nav a {
-            color: #00FFFF;
-            text-decoration: none;
-            margin: 10px;
-            font-size: 1.2rem;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <nav>
         <a href="#about">About</a>
         <a href="#visuales">Visuales</a>
-        <a href="#colabs">Colaboraciones</a>
+        <a href="#colaboraciones">Colaboraciones</a>
         <a href="#beats">Beats</a>
         <a href="#coverarts">Cover Arts</a>
-        <a href="#contact">Contacto</a>
     </nav>
 
-    <section id="about" class="about-section">
-        <div>
-            <h1 class="section-title">VCX WORK'S</h1>
-            <p>Influenciado por Deadmau5... (Información relevante)</p>
+    <section id="about">
+        <h1 class="section-title">VCX WORK'S</h1>
+        <div class="about-section">
+            <p>Influenciado por Deadmau5 y su actual trabajo en sus eventos, es como en el 2023 nace la curiosidad por la creación y animación 3D. Actualmente trabajando en More Juice Records y con artistas como Simpson Ahuevo, Robot, Go Golden Junk, Villax, Zarri, Jay Romero, Bipo Montana, Adan Cruz, Arturo Challa y el Gobierno de México, además de colaborar con artistas en Estados Unidos, España, Chile, Perú y Brasil.</p>
         </div>
     </section>
 
-    <section id="visuales" class="video-section">
-        <div class="video-container">
-            <iframe src="https://drive.google.com/file/d/1TGzDHJs_dx616WO-pB1jxCboIKpbuT4s/preview" allow="autoplay" muted loop></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://drive.google.com/file/d/1rVkGmk2Pjbe_Vezk6wYFsayYQ1vNbOKI/preview" allow="autoplay" muted loop></iframe>
+    <section id="visuales">
+        <h2 class="section-title">Visuales</h2>
+        <div class="video-section">
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1TGzDHJs_dx616WO-pB1jxCboIKpbuT4s/preview" allow="autoplay" muted loop></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1rVkGmk2Pjbe_Vezk6wYFsayYQ1vNbOKI/preview" allow="autoplay" muted loop></iframe>
+            </div>
         </div>
     </section>
 
-    <section id="colabs" class="video-section">
-        <div class="video-container">
-            <iframe src="https://drive.google.com/file/d/1rUqXQuNMQROmyjN2zuxLfs-ZE65JXHuH/preview" allow="autoplay" muted loop></iframe>
-        </div>
-        <div class="video-container">
-            <iframe src="https://drive.google.com/file/d/1JyLlHLTN1QxZAR4y24MbawDQAgYlyG-W/preview" allow="autoplay" muted loop></iframe>
+    <section id="colaboraciones">
+        <h2 class="section-title">Colaboraciones</h2>
+        <div class="video-section">
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1rUqXQuNMQROmyjN2zuxLfs-ZE65JXHuH/preview" allow="autoplay" muted loop></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://drive.google.com/file/d/1JyLlHLTN1QxZAR4y24MbawDQAgYlyG-W/preview" allow="autoplay" muted loop></iframe>
+            </div>
         </div>
     </section>
 
     <section id="beats">
-        <iframe class="soundcloud-playlist" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1596947027"></iframe>
+        <h2 class="section-title">Beats</h2>
+        <iframe class="soundcloud-playlist" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1596947027&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
     </section>
 
-    <section id="coverarts" class="coverarts-section">
-        <div class="coverart-container">
-            <img src="coverart1.jpg" alt="Cover Art 1">
+    <section id="coverarts">
+        <h2 class="section-title">Cover Arts</h2>
+        <div class="coverarts-section">
+            <div class="coverart-container">
+                <img src="https://via.placeholder.com/300" alt="Cover Art 1">
+            </div>
+            <div class="coverart-container">
+                <img src="https://via.placeholder.com/300" alt="Cover Art 2">
+            </div>
         </div>
-        <div class="coverart-container">
-            <img src="coverart2.jpg" alt="Cover Art 2">
-        </div>
     </section>
-
-    <section id="contact" class="about-section">
-        <p>Contacto en Instagram 1 y 2</p>
-    </section>
-
 </body>
 </html>
