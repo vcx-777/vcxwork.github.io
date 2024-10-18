@@ -1,55 +1,107 @@
-/* Animación de giro de 360 grados y desenfoque para los títulos */
-@keyframes rotateBlur {
-  0% {
-    transform: rotate(0deg);
-    filter: blur(0px);
-  }
-  50% {
-    transform: rotate(180deg);
-    filter: blur(5px);
-  }
-  100% {
-    transform: rotate(360deg);
-    filter: blur(0px);
-  }
+/* Estilo global para toda la página */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #00FFFF;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
-h2, .title {
-  color: #00ffff;
-  font-size: 36px;
-  text-align: center;
-  animation: rotateBlur 5s infinite; /* Animación de giro y blur */
+/* Cada sección ocupará el 100% de la pantalla */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    padding: 20px;
+    transition: all 0.5s ease;
 }
 
-.title {
-  font-size: 48px;
+/* Estilo para los títulos de cada sección */
+.section-title {
+    font-size: 3rem;
+    color: #00FFFF;
+    margin-bottom: 20px;
 }
 
-.blur-active h2, .blur-active .title {
-  filter: blur(5px); /* Aplica blur cuando se activa el desenfoque en hover */
+/* Estilo para la sección de 'about' */
+.about-section p {
+    max-width: 800px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #00FFFF;
 }
 
-/* Video Styles */
+/* Sección de videos, organizados en cuadrícula */
+.video-section, .coverarts-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    padding: 0 10%;
+}
+
+/* Cada video/cover art ocupará el 45% del ancho */
+.video-container, .coverart-container {
+    width: 45%;
+    height: 45%;
+    position: relative;
+}
+
 iframe {
-  border: none;
-  width: 480px; /* Ajuste de tamaño más grande */
-  height: 270px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-iframe:hover {
-  transform: scale(1.1); /* Agranda ligeramente el video */
+/* Estilo para las imágenes de los cover arts */
+.coverart-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-/* Al pasar el mouse, activar blur en otros elementos */
-.blur-active iframe:not(:hover) {
-  filter: blur(5px);
+/* Estilo para la barra de navegación */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  justify-items: center;
-  margin: 20px;
+nav a {
+    color: #00FFFF;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Playlist de SoundCloud */
+.soundcloud-playlist {
+    display: block;
+    width: 100%;
+    height: 166px;
+    margin: 20px 0;
+}
+
+/* Ajuste de transiciones entre secciones */
+body, html {
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    scroll-snap-align: start;
+}
+
+/* Estilos para animación o efectos adicionales podrían ir aquí */
