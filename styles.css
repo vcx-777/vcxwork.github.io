@@ -32,7 +32,7 @@ section.active {
 .title {
     font-size: 3em;
     text-align: center;
-    color: #00ffcc; /* Color llamativo verde-azul neon */
+    color: #00ffcc; /* Color brillante verde-azul neón */
     animation: scrollEffect 5s infinite ease-in-out;
     text-shadow: 0px 0px 15px #00ffcc, 0px 0px 30px #00ffcc;
 }
@@ -74,7 +74,7 @@ h2 {
 }
 
 .soundcloud-container iframe {
-    border: 2px solid #ff0099; /* Borde neon rosa para los soundcloud */
+    border: 2px solid #ff0099; /* Borde neon rosa para los SoundCloud */
 }
 
 .social-links {
