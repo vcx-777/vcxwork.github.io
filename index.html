@@ -93,25 +93,30 @@
     </section>
 
     <script>
-        // JavaScript para facilitar la navegación con el mouse
-        document.addEventListener('wheel', function(event) {
-            if (event.deltaY > 0) {
-                window.scrollBy(0, window.innerHeight);
-            } else {
-                window.scrollBy(0, -window.innerHeight);
-            }
-        });
-
-        window.addEventListener('scroll', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                    section.classList.add('visible');
+
+            function handleScroll() {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('wheel', function(event) {
+                if (event.deltaY > 0) {
+                    window.scrollBy(0, window.innerHeight);
                 } else {
-                    section.classList.remove('visible');
+                    window.scrollBy(0, -window.innerHeight);
                 }
             });
+
+            handleScroll(); // Ejecutar al cargar
         });
     </script>
 </body>
