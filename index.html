@@ -39,8 +39,13 @@
             border: none;
         }
 
-        .blur-active {
+        .blur {
             filter: blur(5px);
+        }
+
+        .focused {
+            width: 100%;
+            height: 100%;
         }
 
         @keyframes rotate360 {
@@ -88,15 +93,25 @@
 
     <h2>Visuales</h2>
     <div class="video-section">
-        <iframe src="https://drive.google.com/file/d/1TGzDHJs_dx616WO-pB1jxCboIKpbuT4s/preview" allow="autoplay" muted loop></iframe>
-        <iframe src="https://drive.google.com/file/d/1rVkGmk2Pjbe_Vezk6wYFsayYQ1vNbOKI/preview" allow="autoplay" muted loop></iframe>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1TGzDHJs_dx616WO-pB1jxCboIKpbuT4s/preview" allow="autoplay" muted loop></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1rVkGmk2Pjbe_Vezk6wYFsayYQ1vNbOKI/preview" allow="autoplay" muted loop></iframe>
+        </div>
     </div>
 
     <h2>Colaboraciones</h2>
     <div class="video-section">
-        <iframe src="https://drive.google.com/file/d/1rUqXQuNMQROmyjN2zuxLfs-ZE65JXHuH/preview" allow="autoplay" muted loop></iframe>
-        <iframe src="https://drive.google.com/file/d/1JyLlHLTN1QxZAR4y24MbawDQAgYlyG-W/preview" allow="autoplay" muted loop></iframe>
-        <iframe src="https://drive.google.com/file/d/1adMAgJz91CWW2Fh0QZLUi6dfxca5CTAg/preview" allow="autoplay" muted loop></iframe>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1rUqXQuNMQROmyjN2zuxLfs-ZE65JXHuH/preview" allow="autoplay" muted loop></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1JyLlHLTN1QxZAR4y24MbawDQAgYlyG-W/preview" allow="autoplay" muted loop></iframe>
+        </div>
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1adMAgJz91CWW2Fh0QZLUi6dfxca5CTAg/preview" allow="autoplay" muted loop></iframe>
+        </div>
     </div>
 
     <h2>Beats</h2>
@@ -109,22 +124,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const iframes = document.querySelectorAll('iframe');
+            const videoContainers = document.querySelectorAll('.video-container');
+            const body = document.body;
 
-            iframes.forEach(iframe => {
-                iframe.addEventListener('mouseover', function() {
+            videoContainers.forEach(container => {
+                const iframe = container.querySelector('iframe');
+                iframe.setAttribute('muted', true); // Muted for autoplay
+
+                container.addEventListener('mouseover', function() {
                     iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                    iframe.setAttribute('autoplay', true);
-                    document.body.classList.add('blur-active'); // Activa el desenfoque
+                    body.classList.add('blur'); // Apply blur to the rest of the content
                 });
 
-                iframe.addEventListener('mouseout', function() {
+                container.addEventListener('mouseout', function() {
                     iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                    document.body.classList.remove('blur-active'); // Quita el desenfoque
+                    body.classList.remove('blur'); // Remove blur
                 });
-
-                iframe.setAttribute('muted', true); // Asegurar que el video esté silenciado
-                iframe.setAttribute('loop', true);  // Asegurar que el video esté en loop
             });
         });
     </script>
