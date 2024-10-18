@@ -39,10 +39,6 @@
             border: none;
         }
 
-        .blur {
-            filter: blur(5px);
-        }
-
         .focused {
             width: 100%;
             height: 100%;
@@ -125,20 +121,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const videoContainers = document.querySelectorAll('.video-container');
-            const body = document.body;
-
+            
             videoContainers.forEach(container => {
                 const iframe = container.querySelector('iframe');
-                iframe.setAttribute('muted', true); // Muted for autoplay
-
+                iframe.setAttribute('autoplay', 'true');
+                iframe.setAttribute('loop', 'true');
+                iframe.setAttribute('muted', 'true');
+                
                 container.addEventListener('mouseover', function() {
                     iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                    body.classList.add('blur'); // Apply blur to the rest of the content
                 });
 
                 container.addEventListener('mouseout', function() {
                     iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                    body.classList.remove('blur'); // Remove blur
                 });
             });
         });
