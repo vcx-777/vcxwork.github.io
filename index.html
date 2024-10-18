@@ -1,41 +1,62 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VCX Creations - Portafolio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Aquí conectas tu archivo CSS -->
+    <meta name="description" content="VCX Creations - Animación 3D y Producción Musical">
+    <title>VCX Creations - Animación 3D y Beats</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        .section { padding: 50px 20px; text-align: center; }
+        .header { background: url('ruta-de-tu-video-o-imagen.jpg') no-repeat center center/cover; height: 100vh; color: white; }
+        .header h1 { margin-top: 0; font-size: 48px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .gallery img { width: 100%; height: auto; }
+        .audio-section { background-color: #f0f0f0; padding: 20px; }
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 10px; }
+        .contact-form button { padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer; }
+    </style>
 </head>
 <body>
 
-    <!-- Cabecera -->
-    <header>
-        <h1>VCX Creations</h1>
-        <p>Animación 3D y Producción Musical</p>
-    </header>
+<!-- Página de Inicio -->
+<div class="header">
+    <h1>Bienvenidos a VCX Creations</h1>
+    <p>Animación 3D y Producción Musical</p>
+    <p><a href="#contacto" style="color: white;">Contáctame</a></p>
+</div>
 
-    <!-- Sección de Proyectos de Animación 3D -->
-    <section id="animacion-3d">
-        <h2>Animaciones 3D</h2>
-        <video src="ruta_de_tu_video.mp4" controls autoplay></video>
-        <p>Explora nuestros proyectos de animación, desde planetas lejanos hasta paisajes urbanos, todo hecho con Unreal Engine y tecnología de seguimiento de cámara en tiempo real.</p>
-    </section>
+<!-- Sección de Animaciones y Diseño 3D -->
+<div class="section" id="animaciones">
+    <h2>Animaciones y Diseño 3D</h2>
+    <div class="gallery">
+        <div><p>Faltan archivos multimedia: Video/Imagen 1</p></div>
+        <div><p>Faltan archivos multimedia: Video/Imagen 2</p></div>
+        <div><p>Faltan archivos multimedia: Video/Imagen 3</p></div>
+    </div>
+</div>
 
-    <!-- Sección de Beats -->
-    <section id="beats">
-        <h2>Producción de Beats</h2>
-        <audio controls autoplay>
-            <source src="ruta_de_tu_audio.wav" type="audio/wav">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-        <p>Escucha nuestros beats únicos creados con un enfoque moderno para la producción musical en géneros como reguetón y hip hop.</p>
-    </section>
+<!-- Sección de Producción Musical -->
+<div class="section audio-section" id="produccion-musical">
+    <h2>Producción Musical</h2>
+    <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" 
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/123456789&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+    </iframe>
+</div>
 
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Síguenos en <a href="https://www.instagram.com/tuperfil">Instagram</a> o contáctanos para colaborar en tu próximo proyecto.</p>
-    </section>
+<!-- Sección de Contacto -->
+<div class="section" id="contacto">
+    <h2>Contáctame</h2>
+    <div class="contact-form">
+        <input type="text" name="name" placeholder="Tu Nombre" required>
+        <input type="email" name="email" placeholder="Tu Correo" required>
+        <textarea name="message" placeholder="Tu Mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+    </div>
+    <p>Redes Sociales:</p>
+    <p><a href="https://instagram.com/vcxcreations" target="_blank">Instagram</a> | <a href="https://facebook.com/vcxcreations" target="_blank">Facebook</a></p>
+</div>
 
 </body>
 </html>
