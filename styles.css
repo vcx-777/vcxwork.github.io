@@ -18,21 +18,25 @@ section {
     align-items: center;
     scroll-snap-align: start;
     padding: 20px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
 }
 
-/* Estilo para los títulos de cada sección */
+section.visible {
+    opacity: 1;
+}
+
+/* Animación de blur y desvanecimiento en los títulos */
 .section-title {
     font-size: 3rem;
     color: #00FFFF;
     margin-bottom: 20px;
+    filter: blur(2px);
+    transition: all 0.5s ease;
 }
 
-/* Estilo para la sección de 'about' */
-.about-section p {
-    max-width: 800px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #00FFFF;
+section.visible .section-title {
+    filter: blur(0);
 }
 
 /* Sección de videos, organizados en cuadrícula */
@@ -45,10 +49,9 @@ section {
     padding: 0 10%;
 }
 
-/* Cada video/cover art ocupará el 45% del ancho */
 .video-container, .coverart-container {
-    width: 45%;
-    height: 45%;
+    width: 48%;
+    height: 300px;
     position: relative;
 }
 
@@ -94,13 +97,33 @@ nav a:hover {
     margin: 20px 0;
 }
 
-/* Ajuste de transiciones entre secciones */
+/* Sección de redes sociales */
+.social-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.social-icon img {
+    width: 60px;
+    height: auto;
+    filter: invert(1);
+}
+
+/* Transiciones entre secciones */
 body, html {
     scroll-snap-type: y mandatory;
 }
 
 section {
     scroll-snap-align: start;
+}
+
+section {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+section.visible {
     opacity: 1;
-    transition: all 0.5s ease;
 }
