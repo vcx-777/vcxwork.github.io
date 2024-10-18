@@ -16,23 +16,29 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     scroll-snap-align: start;
     padding: 20px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
 }
 
-/* Estilo para los títulos de cada sección */
+section.visible {
+    opacity: 1;
+}
+
+/* Animación de los títulos */
 .section-title {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #00FFFF;
+    text-align: center;
     margin-bottom: 20px;
+    filter: blur(2px);
+    transition: all 0.5s ease;
 }
 
-/* Estilo para la sección de 'about' */
-.about-section p {
-    max-width: 800px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #00FFFF;
+section.visible .section-title {
+    filter: blur(0);
 }
 
 /* Sección de videos, organizados en cuadrícula */
@@ -45,10 +51,9 @@ section {
     padding: 0 10%;
 }
 
-/* Cada video/cover art ocupará el 45% del ancho */
 .video-container, .coverart-container {
-    width: 45%;
-    height: 45%;
+    width: 48%;
+    height: 400px; /* Aumenta la altura de los videos */
     position: relative;
 }
 
@@ -58,49 +63,43 @@ iframe {
     border: none;
 }
 
-/* Estilo para las imágenes de los cover arts */
-.coverart-container img {
+/* Sección de redes sociales */
+.social-section {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
+}
+
+.social-icon img {
+    width: 60px;
     height: auto;
-    border-radius: 10px;
-    object-fit: cover;
+    filter: invert(1);
 }
 
-/* Estilo para la barra de navegación */
-nav {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-}
-
-nav a {
-    color: #00FFFF;
-    text-decoration: none;
-    margin: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Playlist de SoundCloud */
-.soundcloud-playlist {
-    display: block;
-    width: 100%;
-    height: 166px;
-    margin: 20px 0;
-}
-
-/* Ajuste de transiciones entre secciones */
+/* Transiciones entre secciones */
 body, html {
     scroll-snap-type: y mandatory;
 }
 
 section {
     scroll-snap-align: start;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+section.visible {
     opacity: 1;
-    transition: all 0.5s ease;
+}
+
+/* Descripción centrada en la primera sección */
+.about-content {
+    text-align: center;
+    margin: 20px;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #00FFFF;
+    margin-top: 10px;
+    max-width: 800px;
 }
