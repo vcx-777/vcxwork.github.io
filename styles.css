@@ -1,28 +1,49 @@
-body {
-  background-color: #000; /* Fondo oscuro */
-  color: #00ffff; /* Texto en azul cian */
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
+/* Animación de giro de 360 grados y desenfoque para los títulos */
+@keyframes rotateBlur {
+  0% {
+    transform: rotate(0deg);
+    filter: blur(0px);
+  }
+  50% {
+    transform: rotate(180deg);
+    filter: blur(5px);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: blur(0px);
+  }
+}
+
+h2, .title {
+  color: #00ffff;
+  font-size: 36px;
+  text-align: center;
+  animation: rotateBlur 5s infinite; /* Animación de giro y blur */
 }
 
 .title {
-  text-align: center;
   font-size: 48px;
-  margin-top: 20px;
 }
 
-.description {
-  text-align: center;
-  color: #00ffff;
-  margin: 20px;
-  font-size: 20px;
-  line-height: 1.5;
+.blur-active h2, .blur-active .title {
+  filter: blur(5px); /* Aplica blur cuando se activa el desenfoque en hover */
 }
 
-h2 {
-  color: #00ffff;
-  text-align: center;
+/* Video Styles */
+iframe {
+  border: none;
+  width: 480px; /* Ajuste de tamaño más grande */
+  height: 270px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+iframe:hover {
+  transform: scale(1.1); /* Agranda ligeramente el video */
+}
+
+/* Al pasar el mouse, activar blur en otros elementos */
+.blur-active iframe:not(:hover) {
+  filter: blur(5px);
 }
 
 .grid {
@@ -31,31 +52,4 @@ h2 {
   grid-gap: 20px;
   justify-items: center;
   margin: 20px;
-}
-
-iframe {
-  border: none;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-iframe:hover {
-  transform: scale(1.05); /* Agranda ligeramente el video */
-}
-
-.blur-active iframe:not(:hover) {
-  filter: blur(5px); /* Desenfoca todo lo que no está en hover */
-}
-
-#beats, #contact {
-  text-align: center;
-  margin: 40px 0;
-}
-
-a {
-  color: #00ffff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
