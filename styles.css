@@ -16,29 +16,23 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     scroll-snap-align: start;
     padding: 20px;
-    transition: all 0.5s ease-in-out;
-    opacity: 0;
 }
 
-section.visible {
-    opacity: 1;
-}
-
-/* Animación de los títulos */
+/* Estilo para los títulos de cada sección */
 .section-title {
-    font-size: 4rem;
+    font-size: 3rem;
     color: #00FFFF;
-    text-align: center;
     margin-bottom: 20px;
-    filter: blur(2px);
-    transition: all 0.5s ease;
 }
 
-section.visible .section-title {
-    filter: blur(0);
+/* Estilo para la sección de 'about' */
+.about-section p {
+    max-width: 800px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #00FFFF;
 }
 
 /* Sección de videos, organizados en cuadrícula */
@@ -51,9 +45,10 @@ section.visible .section-title {
     padding: 0 10%;
 }
 
+/* Cada video/cover art ocupará el 45% del ancho */
 .video-container, .coverart-container {
-    width: 48%;
-    height: 400px; /* Aumenta la altura de los videos */
+    width: 45%;
+    height: 45%;
     position: relative;
 }
 
@@ -63,43 +58,49 @@ iframe {
     border: none;
 }
 
-/* Sección de redes sociales */
-.social-section {
-    display: flex;
-    justify-content: space-around;
+/* Estilo para las imágenes de los cover arts */
+.coverart-container img {
     width: 100%;
-}
-
-.social-icon img {
-    width: 60px;
     height: auto;
-    filter: invert(1);
+    border-radius: 10px;
+    object-fit: cover;
 }
 
-/* Transiciones entre secciones */
+/* Estilo para la barra de navegación */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+nav a {
+    color: #00FFFF;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Playlist de SoundCloud */
+.soundcloud-playlist {
+    display: block;
+    width: 100%;
+    height: 166px;
+    margin: 20px 0;
+}
+
+/* Ajuste de transiciones entre secciones */
 body, html {
     scroll-snap-type: y mandatory;
 }
 
 section {
     scroll-snap-align: start;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-section.visible {
     opacity: 1;
-}
-
-/* Descripción centrada en la primera sección */
-.about-content {
-    text-align: center;
-    margin: 20px;
-}
-
-.description {
-    font-size: 1.2rem;
-    color: #00FFFF;
-    margin-top: 10px;
-    max-width: 800px;
+    transition: all 0.5s ease;
 }
