@@ -12,6 +12,14 @@ body {
   margin-top: 20px;
 }
 
+.description {
+  text-align: center;
+  color: #00ffff;
+  margin: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
 h2 {
   color: #00ffff;
   text-align: center;
