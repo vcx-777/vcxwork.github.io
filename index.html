@@ -11,26 +11,42 @@
             background-color: #000;
             color: #00FFFF;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #00FFFF;
+            margin: 50px 0;
         }
 
         h1 {
-            text-align: center;
-            font-size: 3rem;
-            color: #00FFFF;
-            animation: rotate360 2s infinite;
+            font-size: 4rem;
         }
 
         h2 {
-            font-size: 2rem;
-            color: #00FFFF;
-            text-align: center;
+            font-size: 3rem;
+        }
+
+        .section {
+            padding: 100px 20px;
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .video-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin: 20px;
+            margin: 20px auto;
+            width: 80%;
         }
 
         iframe {
@@ -39,25 +55,11 @@
             border: none;
         }
 
-        .focused {
-            width: 100%;
-            height: 100%;
-        }
-
-        @keyframes rotate360 {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
         .soundcloud-playlist {
             display: block;
             width: 100%;
             height: 166px;
-            margin: 20px 0;
+            margin: 20px auto;
         }
 
         .about-section {
@@ -78,17 +80,22 @@
             font-size: 1.5rem;
             text-decoration: none;
         }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
     <h1>VCX WORK'S</h1>
 
-    <div class="about-section">
+    <div class="section about-section">
         <p>Influenciado por Deadmau5 y su actual trabajo en sus eventos, es como en el 2023 nace la curiosidad por la creación y animación 3D. Actualmente trabajando en More Juice Records y con artistas como Simpson Ahuevo, Robot, Go Golden Junk, Villax, Zarri, Jay Romero, Bipo Montana, Adan Cruz, Arturo Challa y el Gobierno de México, además de colaborar con artistas en Estados Unidos, España, Chile, Perú y Brasil.</p>
     </div>
 
     <h2>Visuales</h2>
-    <div class="video-section">
+    <div class="section video-section">
         <div class="video-container">
             <iframe src="https://drive.google.com/file/d/1TGzDHJs_dx616WO-pB1jxCboIKpbuT4s/preview" allow="autoplay" muted loop></iframe>
         </div>
@@ -98,7 +105,7 @@
     </div>
 
     <h2>Colaboraciones</h2>
-    <div class="video-section">
+    <div class="section video-section">
         <div class="video-container">
             <iframe src="https://drive.google.com/file/d/1rUqXQuNMQROmyjN2zuxLfs-ZE65JXHuH/preview" allow="autoplay" muted loop></iframe>
         </div>
@@ -111,31 +118,31 @@
     </div>
 
     <h2>Beats</h2>
-    <iframe class="soundcloud-playlist" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1596947027&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    <div class="section">
+        <iframe class="soundcloud-playlist" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1596947027&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
 
-    <div class="social-links">
+    <div class="section social-links">
         <a href="https://www.instagram.com/vcxprod/" target="_blank">Instagram 1</a>
         <a href="https://www.instagram.com/vcx_3d/" target="_blank">Instagram 2</a>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoContainers = document.querySelectorAll('.video-container');
-            
-            videoContainers.forEach(container => {
-                const iframe = container.querySelector('iframe');
-                iframe.setAttribute('autoplay', 'true');
-                iframe.setAttribute('loop', 'true');
-                iframe.setAttribute('muted', 'true');
-                
-                container.addEventListener('mouseover', function() {
-                    iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-                });
+        // Intersection observer for smooth transitions on scroll
+        const sections = document.querySelectorAll('.section');
 
-                container.addEventListener('mouseout', function() {
-                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
             });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     </script>
 </body>
